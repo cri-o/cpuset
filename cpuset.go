@@ -320,7 +320,7 @@ func Parse(s string) (CPUSet, error) {
 				return NewCPUSet(), err
 			}
 			if start >= end {
-				return NewCPUSet(), fmt.Errorf("invalid range \"%s\" (%d >= %d)", r, start, end)
+				return NewCPUSet(), fmt.Errorf("invalid range %q (%d >= %d)", r, start, end)
 			}
 			// Add all elements to the result.
 			// e.g. "0-5", "46-48" => [0, 1, 2, 3, 4, 5, 46, 47, 48].

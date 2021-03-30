@@ -352,7 +352,7 @@ func TestParse(t *testing.T) {
 		// Incomplete sequences
 		"0,", "0,,", ",3", ",,3", "0,,3",
 		// Incomplete ranges and/or negative numbers
-		"-1", "1-", "1,2-,3", "1,-2,3", "-1--2", "--1", "1--",
+		"-1", "1-", "1,2-,3", "1,-2,3", "-1--2", "--1", "1--", "1-1",
 		// Reversed ranges
 		"3-0", "0--3"}
 	for _, c := range negativeTestCases {
