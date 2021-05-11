@@ -334,6 +334,7 @@ func TestParse(t *testing.T) {
 		{"1-2,3-5", NewCPUSet(1, 2, 3, 4, 5)},
 		{"5,4,3,2,1", NewCPUSet(1, 2, 3, 4, 5)},  // Range ordering
 		{"3-6,1-5", NewCPUSet(1, 2, 3, 4, 5, 6)}, // Overlapping ranges
+		{"3-3,5-5", NewCPUSet(3, 5)},             // Very short ranges
 	}
 
 	for _, c := range positiveTestCases {
@@ -352,7 +353,7 @@ func TestParse(t *testing.T) {
 		// Incomplete sequences
 		"0,", "0,,", ",3", ",,3", "0,,3",
 		// Incomplete ranges and/or negative numbers
-		"-1", "1-", "1,2-,3", "1,-2,3", "-1--2", "--1", "1--", "1-1",
+		"-1", "1-", "1,2-,3", "1,-2,3", "-1--2", "--1", "1--",
 		// Reversed ranges
 		"3-0", "0--3"}
 	for _, c := range negativeTestCases {
